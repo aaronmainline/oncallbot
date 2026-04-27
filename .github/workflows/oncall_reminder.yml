@@ -8,7 +8,7 @@ on:
 
 permissions:
   contents: read
-  id-token: write  # Required for Workload Identity Federation
+  id-token: write
 
 jobs:
   send-reminder:
@@ -30,7 +30,7 @@ jobs:
           python-version: "3.11"
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: pip install gspread==6.1.2 google-auth==2.29.0
 
       - name: Send on-call reminder to Slack
         env:
